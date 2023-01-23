@@ -8,12 +8,34 @@ import { Hole } from './hole';
 export class BoardService {
   constructor() {}
 
+  //---The Game engine----------
+
   public gameLoop(): Hole[] {
+    // The game loop that generates the 25 holes!
     let holes = [];
     for (let i = 0; i < 25; i++) {
       holes.push({ id: i, theHole: false });
     }
     return holes;
+  }
+
+  public randomHole(
+    // Picks a random hole
+    holes: Hole[],
+    gameInterface: GameInterface
+  ): ReturnType<typeof setInterval> {
+    const game = setInterval(() => {
+      let i = Math.floor(Math.random() * 25);
+
+      let hole = holes[i];
+      hole.theHole = true;
+
+      setTimeout(() => {
+        hole.theHole = false;
+      }, 900);
+    }, 700); // change the speed and multiplies the character Doug!
+
+    return game;
   }
 
   //--- Audio and Sound --------------------------------
@@ -27,31 +49,15 @@ export class BoardService {
   }
 
   public playEffect() {
+    // This is the game effect!!
     let audio = new Audio();
-    audio.src = '../../assets/sound/duck-caught.mp3';
+    audio.src = '../../assets/sound/duck-caught.mp3'; // This audio  can be change if you want to!
     audio.load();
     audio.play();
   }
 
-  public startGame(
-    holes: Hole[],
-    gameInterface: GameInterface
-  ): ReturnType<typeof setInterval> {
-    const game = setInterval(() => {
-      let i = Math.floor(Math.random() * 25);
+  //--The timer function-----
 
-      let hole = holes[i];
-      hole.theHole = true;
-
-      setTimeout(() => {
-        hole.theHole = false;
-      }, 900);
-    }, 700);
-
-    return game;
-  }
-
-  // --the counter function--
   public startCounter(
     gameInterface: GameInterface
   ): ReturnType<typeof setInterval> {
@@ -75,7 +81,8 @@ export class BoardService {
     return gameCheck;
   }
 
-  // --the endGame function--
+  //--The endGame function--
+
   public endGame(
     counter: ReturnType<typeof setInterval>,
     game: ReturnType<typeof setInterval>,

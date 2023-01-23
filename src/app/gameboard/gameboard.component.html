@@ -26,14 +26,16 @@
   </span>
 </div>
 <div></div>
-<div class="score">
-  <div>
-    <button
-      class="play"
-      [disabled]="gameInterface.buttonOff"
-      (click)="startGame()"
-    >
-      START
-    </button>
+<div class="container">
+  <div class="score">
+    <div>
+      <button [disabled]="gameInterface.buttonOff" (click)="startGame()">
+        START
+      </button>
+    </div>
+
+    <div>
+      <p>&#169;1984 NINTENDO</p>
+    </div>
   </div>
 </div>

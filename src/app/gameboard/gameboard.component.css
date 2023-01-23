@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .container > div {
   display: flex;
   flex-direction: row;
@@ -51,11 +57,6 @@ button {
 @font-face {
   font-family: "duck-hunt-regular";
   src: url(src/assets/font/duckhunt.ttf);
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 .holecontainer {

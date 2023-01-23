@@ -28,10 +28,11 @@ export class GameboardComponent implements OnInit {
 
   startGame(): void {
     this.boardService.startAudio(); // A intro for 7 seconds play everytime you start the game
+    this.gameInterface.buttonOff = true;
     setTimeout(() => {
       if (this.gameInterface.start === true) return;
       this.gameInterface.score = 0;
-      let game = this.boardService.startGame(this.holes, this.gameInterface);
+      let game = this.boardService.randomHole(this.holes, this.gameInterface);
       let counter = this.boardService.startCounter(this.gameInterface);
 
       let statusCheck = this.boardService.statusCheck(
