@@ -73,7 +73,7 @@ button {
     rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 
-.hole {
+.peep {
   position: relative;
   height: 74px;
   width: 100px;
@@ -93,7 +93,7 @@ button {
   cursor: crosshair;
 }
 
-.dougNotOnDisplay {
+.noPeep {
   display: none;
 }
 

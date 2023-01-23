@@ -16,8 +16,17 @@ export class BoardService {
     return holes;
   }
 
+  //--- Audio and Sound --------------------------------
+
+  public startAudio() {
+    // This audio plays for 7 seconds when the user clicks on the startbutton
+    let audio = new Audio();
+    audio.src = '../../assets/sound/duck-hunt-intro.mp3'; // This audio  can be change if you want to!
+    audio.load();
+    audio.play();
+  }
+
   public playEffect() {
-    // This is the audio for the Eventhandler
     let audio = new Audio();
     audio.src = '../../assets/sound/duck-caught.mp3';
     audio.load();
@@ -41,6 +50,8 @@ export class BoardService {
 
     return game;
   }
+
+  // --the counter function--
   public startCounter(
     gameInterface: GameInterface
   ): ReturnType<typeof setInterval> {
@@ -63,6 +74,8 @@ export class BoardService {
 
     return gameCheck;
   }
+
+  // --the endGame function--
   public endGame(
     counter: ReturnType<typeof setInterval>,
     game: ReturnType<typeof setInterval>,

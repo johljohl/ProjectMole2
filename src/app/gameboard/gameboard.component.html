@@ -7,17 +7,17 @@
       <p>Time left {{ gameInterface.time }}</p>
     </div>
     <div>
-      <p>High score 0</p>
+      <p>High score {{ gameInterface.highscore }}</p>
     </div>
   </div>
 </div>
 
 <div class="holecontainer">
   <span *ngFor="let hole of holes">
-    <div class="hole" id="{{ 'doug' + hole.id }}" (click)="bonk(hole)">
+    <div class="peep" id="{{ 'doug' + hole.id }}" (click)="bonk(hole)">
       <img
         class="doug"
-        [class.dougNotOnDisplay]="hole.theHole === false"
+        [class.noPeep]="hole.theHole === false"
         id="{{ 'doug' + hole.id }}"
         alt=""
         src="../../assets/img/hound1.png"
