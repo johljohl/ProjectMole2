@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppComponent } from './app.component';
-import { ScoreboardComponent } from './scoreboard/scoreboard.component';
-import { GameboardComponent } from './gameboard/gameboard.component';
 import { BoardService } from './board.service';
 
+import { AppComponent } from './app.component';
+import { GameboardComponent } from './gameboard/gameboard.component';
+
 @NgModule({
-  declarations: [AppComponent, ScoreboardComponent, GameboardComponent],
+  declarations: [AppComponent, GameboardComponent],
   imports: [BrowserModule],
   providers: [BoardService],
   bootstrap: [AppComponent],

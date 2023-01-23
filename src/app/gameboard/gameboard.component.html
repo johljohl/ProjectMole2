@@ -1,1 +1,39 @@
-<p>gameboard works!</p>
+<div class="container">
+  <div class="score">
+    <div>
+      <p>Your score {{ gameInterface.score }}</p>
+    </div>
+    <div>
+      <p>Time left {{ gameInterface.time }}</p>
+    </div>
+    <div>
+      <p>High score 0</p>
+    </div>
+  </div>
+</div>
+
+<div class="holecontainer">
+  <span *ngFor="let hole of holes">
+    <div class="hole" id="{{ 'doug' + hole.id }}" (click)="bonk(hole)">
+      <img
+        class="doug"
+        [class.dougNotOnDisplay]="hole.theHole === false"
+        id="{{ 'doug' + hole.id }}"
+        alt=""
+        src="../../assets/img/hound1.png"
+      />
+    </div>
+  </span>
+</div>
+<div></div>
+<div class="score">
+  <div>
+    <button
+      class="play"
+      [disabled]="gameInterface.buttonOff"
+      (click)="startGame()"
+    >
+      START
+    </button>
+  </div>
+</div>

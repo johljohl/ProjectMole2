@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+.container > div {
+  display: flex;
+  flex-direction: row;
+}
+
+.score {
+  width: 510px;
+  height: 80px;
+  border: 5px solid grey;
+  border-radius: 15px;
+  background: black;
+  padding: 10px;
+  line-height: 1;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.score :nth-child(2) {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+div {
+  padding-bottom: 10px;
+}
+
+p {
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 18px;
+  font-size: 15px;
+  color: #ee1515;
+  font-family: "Press Start 2P", cursive;
+}
+
+button {
+  border-radius: 20px;
+  width: 170px;
+  height: 50px;
+  background: #bdaead;
+  border: 5px solid grey;
+  font-family: "Press Start 2P", cursive;
+  color: #ee1515;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: "duck-hunt-regular";
+  src: url(src/assets/font/duckhunt.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.holecontainer {
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0px;
+  width: 510px;
+  border-radius: 15px;
+  border: 5px solid rgb(117, 203, 11);
+  background-color: skyblue;
+
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.hole {
+  position: relative;
+  height: 74px;
+  width: 100px;
+  background: url(../../assets/img/grass.png);
+  overflow: hidden;
+}
+
+.doug {
+  position: absolute;
+  z-index: 0;
+  height: 65px;
+  bottom: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
+  animation: appear 0.3s linear;
+  cursor: crosshair;
+}
+
+.dougNotOnDisplay {
+  display: none;
+}
+
+@keyframes appear {
+  from {
+    bottom: -80px;
+  }
+  to {
+    bottom: 0;
+  }
+}
