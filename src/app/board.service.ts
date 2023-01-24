@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { GameInterface } from './gameInterface';
-import { Hole } from './hole';
+import { GameInterface } from './gameInterface'; // The game interface
+import { Hole } from './hole'; // The hole interface
 
 @Injectable({
   providedIn: 'root',
@@ -20,12 +20,11 @@ export class BoardService {
   }
 
   public randomHole(
-    // Picks a random hole
     holes: Hole[],
     gameInterface: GameInterface
   ): ReturnType<typeof setInterval> {
     const game = setInterval(() => {
-      let i = Math.floor(Math.random() * 25);
+      let i = Math.floor(Math.random() * 25); // Picks a random hole
 
       let hole = holes[i];
       hole.theHole = true;
@@ -33,7 +32,7 @@ export class BoardService {
       setTimeout(() => {
         hole.theHole = false;
       }, 900);
-    }, 700); // change the speed and multiplies the character Doug!
+    }, 700); // change the speed and multiplies the character of Doug!
 
     return game;
   }
@@ -49,7 +48,7 @@ export class BoardService {
   }
 
   public playEffect() {
-    // This is the game effect!!
+    // This is the games effect!!
     let audio = new Audio();
     audio.src = '../../assets/sound/duck-caught.mp3'; // This audio  can be change if you want to!
     audio.load();
@@ -89,10 +88,10 @@ export class BoardService {
     gameInterface: GameInterface
   ): void {
     clearInterval(game);
-    clearInterval(counter);
+    clearInterval(counter); // clears the interval
 
-    gameInterface.time = 60;
+    gameInterface.time = 60; // reset the timer to 60 seconds
     gameInterface.start = false;
-    gameInterface.buttonOff = false;
+    gameInterface.buttonOff = false; // Unlocks the button after gameplay has finished
   }
 }

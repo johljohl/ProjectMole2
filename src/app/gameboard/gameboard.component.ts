@@ -42,13 +42,16 @@ export class GameboardComponent implements OnInit {
       );
 
       this.gameInterface.start = true;
-    }, 7000);
+    }, 7000); // Seven seconds timer
   }
   bonk(hole: Hole): void {
+    // This is the event handler for the game
+
     if (this.gameInterface.start && hole.theHole) {
-      this.boardService.playEffect(); // Plays a effect when you score
-      hole.theHole = false;
+      this.boardService.playEffect(); // Plays an effect everytime you score
+      hole.theHole = false; // Removes the Character Doug!
       this.gameInterface.score++; // Adds a point to the scoreboard
+
       if (this.gameInterface.score > this.gameInterface.highscore) {
         // Shows todays highscore!
         this.gameInterface.highscore = this.gameInterface.score;
