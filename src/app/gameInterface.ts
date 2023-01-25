@@ -3,5 +3,6 @@ export interface GameInterface {
   time: number;
   start: boolean;
   highscore: number;
+  gameOver: string;
   buttonOff: boolean;
 }

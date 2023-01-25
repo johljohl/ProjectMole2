@@ -55,6 +55,14 @@ export class BoardService {
     audio.play();
   }
 
+  public gameOverAudio() {
+    // This audio plays for 5 seconds at the end of the game!
+    let audio = new Audio();
+    audio.src = '../../assets/sound/gameover.mp3'; // This audio  can be change if you want to!
+    audio.load();
+    audio.play();
+  }
+
   //--The timer function-----
 
   public startCounter(
@@ -89,9 +97,12 @@ export class BoardService {
   ): void {
     clearInterval(game);
     clearInterval(counter); // clears the interval
-
+    gameInterface.gameOver = 'GAME OVER';
     gameInterface.time = 60; // reset the timer to 60 seconds
     gameInterface.start = false;
-    gameInterface.buttonOff = false; // Unlocks the button after gameplay has finished
+    this.gameOverAudio(); // Game Over audio is playing 5 seconds
+    setTimeout(() => {
+      gameInterface.buttonOff = false; // Unlocks the button after gameplay  and audio has finished
+    }, 5000);
   }
 }

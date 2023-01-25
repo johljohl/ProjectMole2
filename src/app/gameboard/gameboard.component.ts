@@ -19,7 +19,8 @@ export class GameboardComponent implements OnInit {
       time: 60, // Change this if you want more time!
       start: false,
       highscore: 0, // highscore always starts at 0 when the site is reloaded
-      buttonOff: false, // button off when the game is on
+      gameOver: '©1984 NINTENDO',
+      buttonOff: false,
     };
   }
   ngOnInit(): void {
@@ -27,11 +28,12 @@ export class GameboardComponent implements OnInit {
   }
 
   startGame(): void {
+    this.gameInterface.gameOver = '©1984 NINTENDO';
     this.boardService.startAudio(); // A intro for 7 seconds play everytime you start the game
-    this.gameInterface.buttonOff = true;
+    this.gameInterface.buttonOff = true; // Locks the button during gameplay
     setTimeout(() => {
       if (this.gameInterface.start === true) return;
-      this.gameInterface.score = 0;
+      this.gameInterface.score = 0; //
       let game = this.boardService.randomHole(this.holes, this.gameInterface);
       let counter = this.boardService.startCounter(this.gameInterface);
 
