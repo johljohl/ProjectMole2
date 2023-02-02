@@ -28,9 +28,11 @@ export class GameboardComponent implements OnInit {
   }
 
   startGame(): void {
-    this.gameInterface.gameOver = '©1984 NINTENDO';
     this.boardService.startAudio(); // A intro for 7 seconds play everytime you start the game
     this.gameInterface.buttonOff = true; // Locks the button during gameplay
+
+    this.gameInterface.gameOver = 'GET READY'; // Gets the player ready notification
+
     setTimeout(() => {
       if (this.gameInterface.start === true) return;
       this.gameInterface.score = 0; //
@@ -44,6 +46,7 @@ export class GameboardComponent implements OnInit {
       );
 
       this.gameInterface.start = true;
+      this.gameInterface.gameOver = 'GO!';
     }, 7000); // Seven seconds timer
   }
   bonk(hole: Hole): void {

@@ -102,7 +102,8 @@ export class BoardService {
     gameInterface.start = false;
     this.gameOverAudio(); // Game Over audio is playing 5 seconds
     setTimeout(() => {
+      gameInterface.gameOver = '©1984 NINTENDO';
       gameInterface.buttonOff = false; // Unlocks the button after gameplay  and audio has finished
-    }, 5000);
+    }, 8000);
   }
 }
